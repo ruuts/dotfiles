@@ -1,0 +1,4 @@
+# command line loop
+for f in *.m4v; do ffmpeg2theora $f; done
+# python simple server
+python -m SimpleHTTPServer
