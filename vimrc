@@ -92,4 +92,3 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap 
 endif
-
