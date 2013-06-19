@@ -75,6 +75,9 @@ autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=rou
 " :Cuc my text (no quotes) -> runs cucumber scenarios containing "my text"
 command! -nargs=+ Cuc :!ack --no-heading --no-break <q-args> | cut -d':' -f1,2 | xargs bundle exec cucumber --no-color
 
+" https://github.com/hashrocket/dotmatrix/commit/6c77175adc19e94594e8f2d6ec29371f5539ceeb
+command! -bar -range=% NotRocket :<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/ge
+
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -92,3 +95,10 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap 
 endif
+
+" Make = use css_tidy on css files
+autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
+autocmd filetype scss setlocal equalprg=csstidy\ -\ --silent=true
+
+" additional syntaxes
+au BufNewFile,BufRead *.csvbuilder set filetype=ruby
