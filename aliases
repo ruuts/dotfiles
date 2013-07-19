@@ -60,12 +60,13 @@ alias production='heroku run console --remote production'
 alias production-process='watch heroku ps --remote production'
 alias production-releases='heroku releases --remote production'
 alias production-tail='heroku logs --tail --remote production'
-alias production-deploy='git push production master && heroku maintenance:on --remote production && heroku ps:scale web=0 worker=0 --remote production && heroku run rake db:migrate --remote production && heroku ps:scale web=5 worker=1 --remote production && heroku ps:resize web=2X --remote production && heroku maintenance:off --remote production'
+alias production-deploy='git push production master && heroku maintenance:on --remote production && heroku ps:scale web=0 worker=0 --remote production && heroku run rake db:migrate --remote production && heroku ps:scale web=5 worker=1 --remote production && heroku maintenance:off --remote production'
 
 # Heroku databases
 #alias db-pull-staging='heroku db:pull --remote staging --confirm `basename $PWD`-staging'
 #alias db-pull-production='heroku db:pull --remote production --confirm `basename $PWD`-production'
-alias db-copy-production-to-staging='heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging  --confirm `basename $PWD`-staging'
+#alias db-copy-production-to-staging='heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging  --confirm `basename $PWD`-staging'
+alias db-copy-production-to-staging='heroku ps:scale web=0 worker=0 --remote staging && heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging && heroku ps:scale web=1 worker=1 --remote staging'
 alias db-backup-production='heroku pgbackups:capture --remote production'
 
 alias db-pull-production='curl -o latest.dump `heroku pgbackups:url --remote production` && dropdb bookingexperts_development && createdb bookingexperts_development -O ruudseydel && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U ruudseydel -d bookingexperts_development latest.dump'
