@@ -68,6 +68,6 @@ setopt EXTENDED_GLOB
 export PATH="$HOME/.scripts/:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH" 
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 alias s3cp=/Users/ruudseydel/Applications/s3cp/src/scripts/s3cp.sh
-export CC=/usr/bin/gcc-4.2
+export CC=/usr/local/bin/gcc-4.2
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

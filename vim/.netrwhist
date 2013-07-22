@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/ruudseydel/Projects/BookingExperts/Code'
-let g:netrw_dirhist_2='/Users/ruudseydel/Projects/BookingExperts/Code/app'
-let g:netrw_dirhist_3='/Users/ruudseydel/Projects/BookingExperts/Code/app/controllers'
-let g:netrw_dirhist_4='/Users/ruudseydel/Projects/BookingExperts/Code/app/controllers/front_office'
-let g:netrw_dirhist_5='/Users/ruudseydel/Projects/BookingExperts/Code/app/controllers'
-let g:netrw_dirhist_6='/Users/ruudseydel/dotfiles/zsh'
+let g:netrw_dirhist_cnt =0

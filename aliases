@@ -69,5 +69,5 @@ alias production-deploy='git push production master && heroku maintenance:on --r
 alias db-copy-production-to-staging='heroku ps:scale web=0 worker=0 --remote staging && heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging && heroku ps:scale web=1 worker=1 --remote staging'
 alias db-backup-production='heroku pgbackups:capture --remote production'
 
-alias db-pull-production='curl -o latest.dump `heroku pgbackups:url --remote production` && dropdb bookingexperts_development && createdb bookingexperts_development -O ruudseydel && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U ruudseydel -d bookingexperts_development latest.dump'
-alias db-pull-testing='curl -o latest.dump `heroku pgbackups:url --remote testing` && dropdb bookingexperts_development && createdb bookingexperts_development -O ruudseydel && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U ruudseydel -d bookingexperts_development latest.dump'
+alias db-pull-production='curl -o latest.dump `heroku pgbackups:url --remote production` && dropdb bookingexperts_development && createdb bookingexperts_development -O ruud && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U ruud -d bookingexperts_development latest.dump'
+alias db-pull-testing='curl -o latest.dump `heroku pgbackups:url --remote testing` && dropdb bookingexperts_development && createdb bookingexperts_development -O ruud && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U ruud -d bookingexperts_development latest.dump'
